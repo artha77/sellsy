@@ -17,7 +17,6 @@ module Sellsy
 
 
     def create
-      binding.pry
       command = {
           'method' => 'Prospects.create',
           'params' => {
@@ -42,7 +41,7 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
-      @id = response['response']['contact_id']
+      @id = response['response']
 
       return response['status'] == 'success'
     end
