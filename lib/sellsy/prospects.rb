@@ -13,6 +13,8 @@ module Sellsy
     attr_accessor :corp_type
     attr_accessor :first_name
     attr_accessor :last_name
+    attr_accessor :prospect_id
+
 
     def create
       command = {
@@ -39,7 +41,27 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
-      @id = response['response']['client_id']
+      @id = response['response']['contact_id']
+
+      return response['status'] == 'success'
+    end
+
+    def add_contact
+      command = {
+          'method' => 'Prospects.addContact',
+          'params' => {
+              'prospectid' => @prospect_id,
+              'third' => {
+                  'name' => "#{@first_name} #{@last_name}",
+                  'email' => @email,
+                  'tel' => @tel
+              }
+          }
+      }
+
+      response = MultiJson.load(Sellsy::Api.request command)
+
+      @id = response['response']['contact_id']
 
       return response['status'] == 'success'
     end
