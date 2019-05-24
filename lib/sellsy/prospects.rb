@@ -17,6 +17,7 @@ module Sellsy
 
 
     def create
+      debugger
       command = {
           'method' => 'Prospects.create',
           'params' => {
