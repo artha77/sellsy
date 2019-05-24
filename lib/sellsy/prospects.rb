@@ -17,7 +17,7 @@ module Sellsy
 
 
     def create
-      debugger
+      binding.pry
       command = {
           'method' => 'Prospects.create',
           'params' => {
