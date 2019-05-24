@@ -3,5 +3,5 @@ source "http://rubygems.org"
 # Example:
 #   gem "activesupport", ">= 2.3.5"
 
-gem 'multi_json'  # JSON client
-gem 'rest-client'  # REST client
+gem 'multi_json', '~> 1.13.1'  # JSON client
+gem 'rest-client', '~> 2.0.2'  # REST client
