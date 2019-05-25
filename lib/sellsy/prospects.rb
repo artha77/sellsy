@@ -5,7 +5,7 @@ module Sellsy
     attr_accessor :name
     attr_accessor :type
     attr_accessor :email
-    attr_accessor :tel
+    attr_accessor :phone_number
     attr_accessor :siret
     attr_accessor :siren
     attr_accessor :rcs
@@ -20,7 +20,7 @@ module Sellsy
       @name = opts[:name]
       @type = opts[:type]
       @email = opts[:email]
-      @tel = opts[:tel]
+      @phone_number = opts[:phone_number]
       @siret = opts[:siret]
       @siren = opts[:siren]
       @rcs = opts[:rcs]
@@ -40,7 +40,7 @@ module Sellsy
                   'name' => @name,
                   'type' => @type,
                   'email' => @email,
-                  'tel' => @tel,
+                  'tel' => @phone_number,
                   'siret' => @siret,
                   'siren' => @siren,
                   'rcs' => @rcs,
@@ -50,7 +50,7 @@ module Sellsy
               'contact' => {
                   'name' => "#{@first_name} #{@last_name}",
                   'email' => @email,
-                  'tel' => @tel
+                  'tel' => @phone_number
               }
           }
       }
@@ -70,7 +70,7 @@ module Sellsy
               'third' => {
                   'name' => "#{@first_name} #{@last_name}",
                   'email' => @email,
-                  'tel' => @tel
+                  'tel' => @phone_number
               }
           }
       }
