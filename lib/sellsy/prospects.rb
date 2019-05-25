@@ -16,19 +16,19 @@ module Sellsy
     attr_accessor :tags
 
 
-    def initialize
-      @name = ""
-      @type = ""
-      @email = "corporation"
-      @tel = ""
-      @siret = ""
-      @siren = ""
-      @rcs = ""
-      @corp_type = ""
-      @tags = ""
-      @first_name = ""
-      @last_name = ""
-      @prospect_id = ""
+    def initialize(opts = {})
+      @name = opts[:name]
+      @type = opts[:type]
+      @email = opts[:email]
+      @tel = opts[:tel]
+      @siret = opts[:siret]
+      @siren = opts[:siren]
+      @rcs = opts[:rcs]
+      @corp_type = opts[:corp_type]
+      @tags = opts[:tags]
+      @first_name = opts[:first_name]
+      @last_name = opts[:last_name]
+      @prospect_id = opts[:prospect_id]
     end
 
 
