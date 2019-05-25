@@ -6,7 +6,6 @@ module Sellsy
     attr_accessor :type
     attr_accessor :email
     attr_accessor :tel
-    attr_accessor :mobile
     attr_accessor :siret
     attr_accessor :siren
     attr_accessor :rcs
@@ -14,6 +13,23 @@ module Sellsy
     attr_accessor :first_name
     attr_accessor :last_name
     attr_accessor :prospect_id
+    attr_accessor :tags
+
+
+    def initialize
+      @name = ""
+      @type = ""
+      @email = "corporation"
+      @tel = ""
+      @siret = ""
+      @siren = ""
+      @rcs = ""
+      @corp_type = ""
+      @tags = ""
+      @first_name = ""
+      @last_name = ""
+      @prospect_id = ""
+    end
 
 
     def create
@@ -21,21 +37,21 @@ module Sellsy
           'method' => 'Prospects.create',
           'params' => {
               'third' => {
-                  'name'			=> @name,
-                  'type'			=> @type,
-                  'email'			=> @email,
-                  'tel'			  => @tel,
-                  'mobile'		=> @mobile,
-                  'siret'		  => @siret,
-                  'siren'		  => @siren,
-                  'rcs'		    => @rcs,
+                  'name' => @name,
+                  'type' => @type,
+                  'email' => @email,
+                  'tel' => @tel,
+                  'siret' => @siret,
+                  'siren' => @siren,
+                  'rcs' => @rcs,
                   'corpType' => @corp_type,
+                  'tags' => @tags,
               },
-             'contact' => {
-                 'name' => "#{@first_name} #{@last_name}",
-                 'email' => @email,
-                 'tel' => @tel
-             }
+              'contact' => {
+                  'name' => "#{@first_name} #{@last_name}",
+                  'email' => @email,
+                  'tel' => @tel
+              }
           }
       }
 
