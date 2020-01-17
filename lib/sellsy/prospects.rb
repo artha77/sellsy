@@ -14,6 +14,7 @@ module Sellsy
     attr_accessor :last_name
     attr_accessor :prospect_id
     attr_accessor :tags
+    attr_accessor :response
 
 
     def initialize(opts = {})
@@ -29,6 +30,7 @@ module Sellsy
       @first_name = opts[:first_name]
       @last_name = opts[:last_name]
       @prospect_id = opts[:prospect_id]
+      @response = nil
     end
 
 
@@ -80,6 +82,21 @@ module Sellsy
       @id = response['response']['contact_id']
 
       return response['status'] == 'success'
+    end
+
+    def get_contact
+      command = {
+          'method' => 'Prospects.getOne',
+          'params' => {
+              'id' => @prospect_id,
+          }
+      }
+
+      response = MultiJson.load(Sellsy::Api.request command)
+
+      @response = response['response']
+
+      return @response
     end
 
   end
