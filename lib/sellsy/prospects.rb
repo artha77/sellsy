@@ -63,13 +63,14 @@ module Sellsy
       return response['status'] == 'success'
     end
 
-    def update_custom_field(custom_field)
+    def update_custom_field(custom_fields)
       command = {
           'method' => 'CustomFields.recordValues',
           'params' => {
               'linkedtype' => 'prospect',
               'linkedid' => @prospect_id,
-              'values' => [{'cfid' => custom_field[:id], 'value' => custom_field[:value]}]
+              #'values' => [{'cfid' => custom_field[:id], 'value' => custom_field[:value]}]
+              'values' => custom_fields
           }
       }
 
