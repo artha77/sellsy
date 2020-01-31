@@ -59,7 +59,23 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
-      @id = response['response']
+      @prospect_id = response['response']
+      return response['status'] == 'success'
+    end
+
+    def update_custom_field(custom_field)
+      command = {
+          'method' => 'CustomFields.recordValues',
+          'params' => {
+              'linkedtype' => 'prospect',
+              'linkedid' => @prospect_id,
+              'values' => [{'cfid' => custom_field[:id], 'value' => custom_field[:value]}]
+          }
+      }
+
+      response = MultiJson.load(Sellsy::Api.request command)
+
+      @response = response['response']
 
       return response['status'] == 'success'
     end
