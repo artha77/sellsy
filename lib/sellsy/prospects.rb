@@ -63,7 +63,7 @@ module Sellsy
       return response['status'] == 'success'
     end
 
-    def update_custom_field(custom_fields)
+    def update_custom_fields(custom_fields)
       command = {
           'method' => 'CustomFields.recordValues',
           'params' => {
