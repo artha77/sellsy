@@ -100,7 +100,7 @@ module Sellsy
       return response['status'] == 'success'
     end
 
-    def get_contact
+    def get_prospect
       command = {
           'method' => 'Prospects.getOne',
           'params' => {
@@ -112,7 +112,7 @@ module Sellsy
 
       @response = response['response']
 
-      return @response
+      @response
     end
 
   end
