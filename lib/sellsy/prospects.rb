@@ -76,7 +76,7 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
-      @response = response['response']
+      @response = response
 
       return response['status'] == 'success'
     end
