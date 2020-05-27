@@ -29,7 +29,7 @@ module Sellsy
               'document' => {
                   'doctype' => 'invoice',
                   # 'parentId' => 'parentId',
-                  'thirdid' => invoice.client_id,
+                  'thirdid' => invoice[:client_id],
                   #'contactName' => invoice.contact_name
                   # 'displayedDate' => 'displayedDate',
                   # 'subject' => 'document_subject',
@@ -60,10 +60,9 @@ module Sellsy
               'row' => {
                   '1' => {
                       'row_type' => 'once',
-                      'row_name' => 'promo code',
-                      'row_qt' => 1,
-                      'row_purchaseAmount' => 50,
-                      'row_unitAmount' => 1,
+                      'row_name' => invoice[:name],
+                      'row_qt' => invoice[:quantity],
+                      'row_unitAmount' => invoice[:amount],
                       # 'row_tax' => invoice.tax_rate
                       'row_taxid' => getTaxId,
                       # 'row_tax2id' => 'row_tax2id',
