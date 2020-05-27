@@ -120,4 +120,23 @@ module Sellsy
 
   end
 
+  class Clients
+    def getByName(name)
+      command = {
+          'method' => 'Client.getList',
+          'params' => {
+              'search' => {
+                  'name' => name
+              },
+          }
+      }
+
+      response = MultiJson.load(Sellsy::Api.request command)
+
+      @response = response['response']
+
+      @response
+    end
+  end
+
 end

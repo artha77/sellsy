@@ -7,6 +7,7 @@ module Sellsy
     attr_accessor :owner_full_name
     attr_accessor :status
     attr_accessor :identity
+    attr_accessor :contact_name
 
     attr_accessor  :total_amount_taxes_free
     attr_accessor  :taxes_amount_sum
@@ -28,7 +29,8 @@ module Sellsy
               'document' => {
                   'doctype' => 'invoice',
                   # 'parentId' => 'parentId',
-                  'thirdid' => invoice.client_id
+                  'thirdid' => invoice.client_id,
+                  #'contactName' => invoice.contact_name
                   # 'displayedDate' => 'displayedDate',
                   # 'subject' => 'document_subject',
                   # 'notes' => 'document_notes',
@@ -57,11 +59,11 @@ module Sellsy
               # },
               'row' => {
                   '1' => {
-                      'row_type' => 'packaging',
-                      'row_packaging' => invoice.packaging_name,
-                      'row_name' => 'row_name',
-                      'row_unitAmount' => invoice.unit_amount,
-                      'row_tax' => invoice.tax_rate
+                      'row_type' => 'once',
+                      'row_name' => 'promo code',
+                      'row_qt' => 1,
+                      'row_purchaseAmount' => 50
+                      # 'row_tax' => invoice.tax_rate
                       # 'row_taxid' => 'row_taxid',
                       # 'row_tax2id' => 'row_tax2id',
                       # 'row_qt' => 'row_quantity',
@@ -69,19 +71,7 @@ module Sellsy
                       # 'row_discount' => 'row_discount',
                       # 'row_discountUnit' => 'row_discountUnit'
                   },
-                  '2' => {
-                      'row_type' => 'shipping',
-                      'row_shipping' => invoice.shipping_name,
-                      # 'row_name' => 'row_name',
-                      'row_unitAmount' => invoice.unit_amount,
-                      'row_tax' => invoice.tax_rate,
-                      # 'row_taxid' => 'row_taxid',
-                      'row_tax2id' => invoice.quantity
-                      # 'row_qt' => 'row_quantity',
-                      # 'row_isOption' => 'row_option',
-                      # 'row_discount' => 'row_discount',
-                      # 'row_discountUnit' => 'row_discountUnit'
-                  }
+
                   # '3' => {
                   # 'row_type' => 'item',
                   # 'row_linkedid' => 'catalogue_id_link',
