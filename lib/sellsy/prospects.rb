@@ -12,7 +12,7 @@ module Sellsy
     attr_accessor :corp_type
     attr_accessor :first_name
     attr_accessor :last_name
-    attr_accessor :prospect_id
+    attr_accessor :client_id
     attr_accessor :tags
     attr_accessor :response
 
@@ -29,7 +29,7 @@ module Sellsy
       @tags = opts[:tags]
       @first_name = opts[:first_name]
       @last_name = opts[:last_name]
-      @prospect_id = opts[:prospect_id]
+      @prospect_id = opts[:client_id]
       @response = nil
     end
 
