@@ -63,9 +63,9 @@ module Sellsy
                       'row_name' => 'promo code',
                       'row_qt' => 1,
                       'row_purchaseAmount' => 50,
-                      'row_unitAmount' => 1
+                      'row_unitAmount' => 1,
                       # 'row_tax' => invoice.tax_rate
-                      # 'row_taxid' => 'row_taxid',
+                      'row_taxid' => 12535,
                       # 'row_tax2id' => 'row_tax2id',
                       # 'row_qt' => 'row_quantity',
                       # 'row_isOption' => 'row_option',
