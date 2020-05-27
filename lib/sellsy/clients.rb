@@ -85,7 +85,7 @@ module Sellsy
       command = {
           'method' => 'Client.addContact',
           'params' => {
-              'prospectid' => @client_id,
+              'clientid' => @client_id,
               'third' => {
                   'name' => "#{@first_name} #{@last_name}",
                   'email' => @email,
@@ -101,7 +101,7 @@ module Sellsy
       return response['status'] == 'success'
     end
 
-    def get_prospect
+    def get_client
       command = {
           'method' => 'Client.getOne',
           'params' => {
