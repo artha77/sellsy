@@ -65,7 +65,7 @@ module Sellsy
                       'row_purchaseAmount' => 50,
                       'row_unitAmount' => 1,
                       # 'row_tax' => invoice.tax_rate
-                      'row_taxid' => 12535,
+                      'row_taxid' => getTaxId,
                       # 'row_tax2id' => 'row_tax2id',
                       # 'row_qt' => 'row_quantity',
                       # 'row_isOption' => 'row_option',
@@ -108,7 +108,24 @@ module Sellsy
           }
       }
 
-      Sellsy::Api.request command
+      response = MultiJson.load(Sellsy::Api.request command)
+
+      @response = response['response']
+
+      @response
+    end
+
+    def getTaxId
+      command = {
+          'method' =>  'Accountdatas.getTaxes',
+          'params' => {}
+      }
+
+      response = MultiJson.load(Sellsy::Api.request command)
+
+      @response = response['response']
+
+      @response['defaultTaxId']
     end
 
     def update
