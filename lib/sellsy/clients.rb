@@ -121,7 +121,7 @@ module Sellsy
   end
 
   class Clients
-    def getByName(name)
+    def self.getByName(name)
       command = {
           'method' => 'Client.getList',
           'params' => {
