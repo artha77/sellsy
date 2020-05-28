@@ -64,6 +64,8 @@ module Sellsy
 
       response = MultiJson.load(Sellsy::Api.request command)
 
+      return response
+
       @response = response['response']
 
       @response
