@@ -6,7 +6,7 @@
 
 Gem::Specification.new do |s|
   s.name = "sellsy"
-  s.version = "0.3.33"
+  s.version = "0.3.34"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
